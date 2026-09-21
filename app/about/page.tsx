@@ -28,6 +28,7 @@ import {
   Phone,
   Building2,
   ChevronRight,
+  ArrowUpRight,
 } from 'lucide-react';
 
 function AboutPageContent() {
@@ -128,98 +129,166 @@ function AboutPageContent() {
 
       <main className="flex-1">
         {/* ========================================================================= */}
-        {/* 1. ABOUT HERO SECTION                                                     */}
+        {/* 1. ABOUT HERO SECTION (DARK THEME WITH 3D ATHLETES & FLOATING 3D BALLS)   */}
         {/* ========================================================================= */}
-        <section className="relative w-full pt-32 sm:pt-40 pb-20 sm:pb-24 bg-[#010A1A] text-white overflow-hidden border-b border-white/10">
-          {/* Subtle Atmospheric Glowing Gradients */}
-          <div className="absolute top-0 start-1/4 w-96 h-96 bg-[#04307C]/40 rounded-full blur-[120px] pointer-events-none" />
-          <div className="absolute bottom-0 end-1/4 w-80 h-80 bg-[#CFF40E]/15 rounded-full blur-[100px] pointer-events-none" />
+        <section className="relative w-full min-h-screen flex flex-col justify-center bg-[#010A1A] text-white pt-28 sm:pt-36 pb-16 lg:pb-24 overflow-hidden border-b border-white/10">
+
+          {/* Atmospheric Glowing Gradients & Stadium Mesh */}
+          <div className="absolute top-0 start-1/4 w-[450px] h-[450px] bg-[#04307C]/40 rounded-full blur-[140px] pointer-events-none" />
+          <div className="absolute bottom-10 end-10 w-96 h-96 bg-[#CFF40E]/15 rounded-full blur-[120px] pointer-events-none" />
           <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none opacity-40" />
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
             {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-xs font-bold text-slate-400 mb-6">
+            <div className="flex items-center gap-2 text-xs font-bold text-slate-400 mb-5">
               <a href="/" className="hover:text-[#CFF40E] transition-colors">
                 {lang === 'ar' ? 'الرئيسية' : 'Home'}
               </a>
               <ChevronRight className="w-3.5 h-3.5 rtl:rotate-180 text-slate-600" />
-              <span className="text-[#CFF40E]">{lang === 'ar' ? 'من نحن' : 'About Us'}</span>
+              <span className="text-[#CFF40E] font-extrabold">{lang === 'ar' ? 'من نحن وقصتنا' : 'About Us'}</span>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-              <div className="lg:col-span-7 flex flex-col items-start text-start">
-                {/* Upper Badge */}
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-[#CFF40E] text-xs font-black tracking-wide mb-5 backdrop-blur-md">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  <span>
-                    {lang === 'ar'
-                      ? 'المنصة الرياضية الأولى بالصعيد'
-                      : "UPPER EGYPT'S #1 SPORTS PLATFORM"}
-                  </span>
-                </div>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
 
-                {/* Animated Headline */}
+              {/* Left / Text & Mission Badge Column (7 cols) */}
+              <div className="lg:col-span-7 flex flex-col items-start text-start">
+
+
+
+                {/* Giant Bold Headline (About Content) */}
                 <TextAnimate
                   animation="blurInUp"
                   by="word"
                   as="h1"
-                  className="font-cairo font-black text-3xl sm:text-5xl lg:text-6xl text-white leading-tight mb-6"
+                  className="text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.08] tracking-tight mb-5 uppercase"
                 >
                   {lang === 'ar'
                     ? 'نُعيد ابتكار ثقافة الرياضة وحجز الملاعب في صعيد مصر'
-                    : 'Pioneering Padel & Football Sports Culture Across Upper Egypt'}
+                    : 'REDEFINING SPORTS CULTURE IN UPPER EGYPT'}
                 </TextAnimate>
 
-                <p className="font-cairo text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mb-8 font-normal">
+                {/* Sub-headline (About Content) */}
+                <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl mb-8 font-normal">
                   {lang === 'ar'
-                    ? 'انطلقت منصتنا من قلب الصعيد بهدف واحد واضح: تمكين عشاق البادل وكرة القدم من الوصول الفوري للملاعب الاحترافية في أسيوط وسوهاج وكافة محافظات الصعيد، وتنظيم مجتمع رياضي وبطولات رسمية ترتقي بالمستوى الرياضي لشبابنا.'
-                    : 'Born in the heart of Upper Egypt with one clear mission: empower padel and football enthusiasts with instant access to certified venues across Assiut, Sohag, and beyond, fostering an elite local community.'}
+                    ? 'انطلقت منصتنا من قلب الصعيد كأول منظومة رقمية معتمدة لحجز ملاعب البادل وكرة القدم. نجمع أفضل الملاعب في أسيوط وسوهاج والمنيا بمواعيد مؤكدة بالدقيقة، وبطولات رسمية، ومجتمع رياضي متنامي يجمع آلاف الشباب.'
+                    : 'Born in Upper Egypt as the premier certified platform for Padel & Football court reservations. Connecting athletes across Assiut, Sohag, and Minya with real-time slot locking, official leagues, and a thriving sports community.'}
                 </p>
 
-                {/* Action CTAs */}
-                <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto">
+                {/* Primary CTAs */}
+                <div className="flex flex-wrap items-center gap-4 mb-8 w-full sm:w-auto">
                   <Button size="lg" onClick={() => handleOpenBookingModal()}>
-                    <span className="flex items-center gap-2">
-                      <span>{lang === 'ar' ? 'احجز ملعبك الآن' : 'Book a Court Now'}</span>
-                      <ArrowIcon className="w-4 h-4" />
-                    </span>
+                    {lang === 'ar' ? 'احجز ملعبك الآن' : 'Book a Court'}
                   </Button>
 
                   <a
                     href="/courts"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/20 bg-white/5 hover:bg-white/15 text-sm font-bold text-white transition-all backdrop-blur-md"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-white/20 bg-white/5 hover:bg-white/15 text-white font-bold text-sm sm:text-base transition-all backdrop-blur-md shadow-sm cursor-pointer"
                   >
-                    <span>{lang === 'ar' ? 'استكشف الملاعب' : 'Explore All Courts'}</span>
+                    <span>{lang === 'ar' ? ' انضم كصاحب ملعب' : 'Join as a Court Owner'}</span>
                   </a>
                 </div>
-              </div>
 
-              {/* Hero Right Visual Showcase */}
-              <div className="lg:col-span-5 relative">
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-white/15 group [clip-path:polygon(0%_1.5rem,1.5rem_0%,100%_0%,100%_calc(100%-1.5rem),calc(100%-1.5rem)_100%,0%_100%)]">
-                  <img
-                    src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?auto=format&fit=crop&q=80&w=900"
-                    alt="Upper Egypt Padel Courts"
-                    className="w-full h-[380px] sm:h-[440px] object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#010A1A] via-[#010A1A]/40 to-transparent" />
-
-                  {/* Floating Metric Card inside Image */}
-                  <div className="absolute bottom-5 inset-x-5 p-4 rounded-2xl bg-[#010A1A]/90 backdrop-blur-xl border border-white/15 text-start">
-                    <div className="flex items-center justify-between gap-3 mb-2">
-                      <span className="text-xs font-black text-[#CFF40E] uppercase tracking-wider">
-                        {lang === 'ar' ? 'معايير دولية معتمدة' : 'Official WPT / FIFA'}
-                      </span>
-                      <span className="w-2 h-2 rounded-full bg-[#CFF40E] animate-ping" />
+                {/* Floating Electric Lime About Community Card */}
+                <div
+                  onClick={() => handleOpenBookingModal('court-1')}
+                  className="w-full sm:w-80 bg-[#CFF40E] text-[#010A1A] p-5 shadow-2xl hover:shadow-[0_20px_40px_rgba(207,244,14,0.3)] transition-all duration-300 cursor-pointer group hover:-translate-y-1 [clip-path:polygon(0%_1.2rem,1.2rem_0%,100%_0%,100%_calc(100%-1.2rem),calc(100%-1.2rem)_100%,0%_100%)] border border-lime-300"
+                >
+                  <div className="flex items-start gap-4">
+                    {/* Trophy Icon */}
+                    <div className="w-12 h-12 rounded-xl bg-[#010A1A] text-[#CFF40E] flex items-center justify-center shrink-0 shadow-md">
+                      <Trophy className="w-6 h-6" />
                     </div>
-                    <p className="text-xs text-slate-200 font-bold leading-relaxed">
-                      {lang === 'ar'
-                        ? 'أرضيات نجيل موندو أزرق، زجاج بانورامي مقاوم للصدمات، وإضاءة ليلية بدون ظلال.'
-                        : 'Mondo Supercourt turf, panoramic glass, and tournament floodlights.'}
-                    </p>
+
+                    <div className="text-start">
+                      <div className="text-base sm:text-lg font-black tracking-tight uppercase leading-none">
+                        {lang === 'ar' ? 'مجتمع الصعيد الرياضي' : 'UPPER EGYPT SPORTS HUB'}
+                      </div>
+                      <p className="text-[11px] text-[#010A1A]/85 font-bold mt-1.5 leading-snug">
+                        {lang === 'ar'
+                          ? '+28 ملعباً معتمداً و5,000+ لاعب يجمعهم الشغف والمنافسة بالصعيد.'
+                          : '28+ approved courts and 5,000+ active players across Upper Egypt.'}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Dark Pill Badge at bottom */}
+                  <div className="mt-4 pt-3 border-t border-black/15 flex items-center justify-between">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#010A1A] text-white text-xs font-black">
+                      <span className="w-2 h-2 rounded-full bg-[#CFF40E] animate-pulse"></span>
+                      <span>{lang === 'ar' ? 'رؤية 2026 • تغطية شاملة' : 'Vision 2026 • Full Coverage'}</span>
+                    </span>
+                    <ArrowUpRight className="w-5 h-5 text-[#010A1A] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </div>
                 </div>
+
               </div>
+
+              {/* Right / Photo Collage Column with Polygon Cuts (5 cols) */}
+              <div className="lg:col-span-5 relative flex items-center justify-center">
+
+                {/* Collage Container */}
+                <div className="relative w-full max-w-md h-[480px] sm:h-[540px]">
+
+                  {/* Image 1: Football Player (Mohamed Salah) with Polygon Cut */}
+                  <div className="absolute top-0 left-0 w-[66%] h-[84%] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 [clip-path:polygon(0%_2rem,2rem_0%,100%_0%,100%_calc(100%-2rem),calc(100%-2rem)_100%,0%_100%)] bg-slate-900 group z-10">
+                    <img
+                      src="/hero1.jpg"
+                      alt="Football Player"
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+
+                    {/* Subtle Football Tag inside card */}
+                    <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-md text-[10px] font-bold text-white uppercase tracking-wider border border-white/15">
+                      ⚽ FOOTBALL
+                    </div>
+                  </div>
+
+                  {/* Floating 3D Soccer Ball on Salah's Foot */}
+                  <div className="absolute bottom-[39%] md:bottom-[37%] left-[10%] z-30 flex flex-col items-center pointer-events-none group">
+                    <img
+                      src="/soccer.png"
+                      alt="Soccer Ball"
+                      className="w-15 md:w-17 drop-shadow-[0_20px_25px_rgba(0,0,0,0.8)] animate-bounce"
+                    />
+                    {/* 3D Ball Shadow beneath */}
+                    <div className="w-12 h-2.5 bg-black/60 rounded-full blur-xs -mt-1 scale-x-90"></div>
+                  </div>
+
+                  {/* Image 2: Padel Athlete (Cut corner slice) */}
+                  <div className="absolute bottom-0 right-1 sm:right-2 w-[52%] h-[76%] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 [clip-path:polygon(2rem_0%,100%_0%,100%_calc(100%-2rem),calc(100%-2rem)_100%,0%_100%,0%_2rem)] bg-slate-900 group z-20">
+                    <img
+                      src="/hero2.jpg"
+                      alt="Padel Player"
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+
+                    {/* Subtle Padel Tag inside card */}
+                    <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-md text-[10px] font-bold text-[#CFF40E] uppercase tracking-wider border border-white/15">
+                      🎾 PADEL
+                    </div>
+                  </div>
+
+                  {/* Floating 3D Padel Ball on the Racket */}
+                  <div className="absolute bottom-[30%] right-[3%] sm:bottom-[30%] sm:right-[5%] z-40 flex flex-col items-center pointer-events-none">
+                    <img
+                      src="/badel-ball.png"
+                      alt="Padel Ball"
+                      className="w-10 sm:w-12 drop-shadow-[0_20px_25px_rgba(0,0,0,0.8)] animate-bounce"
+                    />
+                    {/* 3D Ball Glow / Impact Highlight */}
+                    <div className="w-8 h-2 bg-[#CFF40E]/50 rounded-full blur-xs -mt-1 shadow-[0_0_12px_#CFF40E]"></div>
+                  </div>
+
+                  {/* Background Athletic Accent Geometry */}
+                  <div className="absolute -bottom-4 -left-4 w-28 h-28 bg-[#CFF40E] -z-10 rounded-3xl opacity-80 shadow-[0_0_30px_rgba(207,244,14,0.3)]"></div>
+                  <div className="absolute -top-4 right-10 w-20 h-20 bg-[#04307C] -z-10 rounded-2xl opacity-40 shadow-[0_0_30px_rgba(4,48,124,0.4)]"></div>
+
+                </div>
+
+              </div>
+
             </div>
           </div>
         </section>
@@ -638,8 +707,8 @@ function AboutPageContent() {
       <BookingModal
         isOpen={bookingModalOpen}
         onClose={() => setBookingModalOpen(false)}
-        defaultCourtId={activeCourtId}
-        defaultSlot="19:00"
+        courtId={activeCourtId}
+        initialSlot="19:00"
       />
 
       {/* Global Footer */}
