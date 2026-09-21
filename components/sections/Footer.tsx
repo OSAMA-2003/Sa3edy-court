@@ -116,10 +116,10 @@ export const Footer: React.FC = () => {
               {lang === 'ar' ? 'روابط سريعة' : 'Quick Links'}
             </h4>
             <ul className="flex flex-col gap-2.5 text-xs text-slate-300">
-              <li><a href="#featured-showcase" className="hover:text-[#CFF40E] transition-colors">{lang === 'ar' ? 'الملعب المميز' : 'Featured Court'}</a></li>
-              <li><a href="#how-it-works" className="hover:text-[#CFF40E] transition-colors">{lang === 'ar' ? 'إزاي تحجز؟' : 'How It Works'}</a></li>
-              <li><a href="#why-us" className="hover:text-[#CFF40E] transition-colors">{lang === 'ar' ? 'ليه تحجز معنا؟' : 'Why Choose Us'}</a></li>
-              <li><a href="#reviews-section" className="hover:text-[#CFF40E] transition-colors">{lang === 'ar' ? 'آراء اللاعبين' : 'Reviews'}</a></li>
+              <li><a href="/about" className="hover:text-[#CFF40E] transition-colors">{lang === 'ar' ? 'من نحن وقصتنا' : 'About Us'}</a></li>
+              <li><a href="/courts" className="hover:text-[#CFF40E] transition-colors">{lang === 'ar' ? 'دليل الملاعب' : 'Courts Directory'}</a></li>
+              <li><a href="/#tournaments" className="hover:text-[#CFF40E] transition-colors">{lang === 'ar' ? 'البطولات الرسمية' : 'Tournaments'}</a></li>
+              <li><a href="/#reviews-section" className="hover:text-[#CFF40E] transition-colors">{lang === 'ar' ? 'آراء اللاعبين' : 'Reviews'}</a></li>
             </ul>
           </div>
 

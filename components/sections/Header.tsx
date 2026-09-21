@@ -86,7 +86,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBookingModal }) => {
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#CFF40E] transition-all group-hover:w-full"></span>
           </a>
           <a
-            href="/#about"
+            href="/about"
             className="text-xs font-semibold text-slate-300 hover:text-[#CFF40E] transition-colors relative py-1 group"
           >
             <span>{lang === 'ar' ? 'من نحن' : 'About Us'}</span>
@@ -152,7 +152,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBookingModal }) => {
             <a href="/#tournaments" onClick={() => setMobileMenuOpen(false)} className="text-sm font-semibold text-slate-300 hover:text-[#CFF40E] transition-colors">
               {lang === 'ar' ? 'البطولات' : 'Tournaments'}
             </a>
-            <a href="/#about" onClick={() => setMobileMenuOpen(false)} className="text-sm font-semibold text-slate-300 hover:text-[#CFF40E] transition-colors">
+            <a href="/about" onClick={() => setMobileMenuOpen(false)} className="text-sm font-semibold text-slate-300 hover:text-[#CFF40E] transition-colors">
               {lang === 'ar' ? 'من نحن' : 'About Us'}
             </a>
 

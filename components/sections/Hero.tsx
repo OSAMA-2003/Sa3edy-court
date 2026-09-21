@@ -37,6 +37,7 @@ export const Hero: React.FC<HeroProps> = ({ onSearch, onOpenBookingModal }) => {
 
       {/* Soft Dark Overlay to enhance contrast while keeping the background image crisp and visible */}
       {/* <div className="absolute inset-0 bg-gradient-to-r from-[#010A1A]/85 via-[#010A1A]/60 to-[#010A1A]/40 backdrop-blur-[1px]"></div> */}
+      <div className="pointer-events-none absolute inset-y-0 w-full bg-gradient-to-l from-[#0e0e0e] to-transparent z-10"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full mb-12">
 
