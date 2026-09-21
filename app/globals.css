@@ -1,26 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
 @import "tailwindcss";
 
+@theme {
+  --color-neon: #CFF40E;
+  --color-neon-lime: #D9F920;
+  --color-neon-dark: #181E00;
+
+  --color-navy-950: #010A1A;
+  --color-navy-900: #02122F;
+  --color-navy-850: #041B3D;
+  --color-navy-800: #072654;
+  --color-navy-700: #0B3673;
+  --color-navy-primary: #04307C;
+  --color-navy-600: #134CA1;
+
+  --color-court-blue: #0A58CA;
+  --color-court-turf: #0047AB;
+
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-tajawal: 'Tajawal', sans-serif;
+  --font-allura: 'Allura', cursive;
+  --font-cairo: 'Tajawal', sans-serif;
+  --font-grotesk: 'Montserrat', sans-serif;
+  --font-sans: 'Montserrat', 'Tajawal', sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F8FAFC;
+  --foreground: #0F172A;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Montserrat', 'Tajawal', sans-serif;
+  overflow-x: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+h1,
+h2,
+h3,
+.font-grotesk,
+.font-montserrat {
+  font-family: 'Montserrat', 'Tajawal', sans-serif;
+}
+
+.font-cairo,
+.font-tajawal {
+  font-family: 'Tajawal', sans-serif;
+}
+
+.font-allura,
+.font-accent {
+  font-family: 'Allura', cursive;
+}
+
+[dir="rtl"] body,
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3 {
+  font-family: 'Tajawal', 'Montserrat', sans-serif;
+}
+
+/* Responsive Hero Background Classes */
+.hero-bg {
+  background-image: url('/hero-sm.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+@media (min-width: 1024px) {
+  .hero-bg {
+    background-image: url('/hero-lg.png') !important;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.court-grid-pattern {
+  background-size: 32px 32px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #02122F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #04307C;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #CFF40E;
+}
+
+/* Marquee Keyframes */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap, 1rem)));
+  }
+}
+
+@keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-100% - var(--gap, 1rem)));
+  }
+}
+
+.animate-marquee {
+  animation: marquee var(--duration, 30s) linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee var(--duration, 30s) linear infinite reverse !important;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration, 30s) linear infinite;
+}
+
+.animate-marquee-vertical-reverse {
+  animation: marquee-vertical var(--duration, 30s) linear infinite reverse !important;
+}
+
+/* Cyber Polygon Clip-Path Button Styling */
+.cyber-btn {
+  --border-color: linear-gradient(-45deg, #CFF40E, #04307C, #0A58CA, #CFF40E);
+  --border-width: 0.125em;
+  --curve-size: 0.5em;
+  --blur: 30px;
+  --bg: #010A1A;
+  --color: #CFF40E;
+  color: var(--color);
+  cursor: pointer;
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6em 1.6em;
+  font-size: 15px;
+  font-weight: 800;
+  border: 0;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
+  clip-path: polygon(
+    0% var(--curve-size),
+    var(--curve-size) 0,
+    100% 0,
+    100% calc(100% - var(--curve-size)),
+    calc(100% - var(--curve-size)) 100%,
+    0 100%
+  );
+  transition: color 250ms, transform 200ms;
+}
+
+.cyber-btn::after,
+.cyber-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.cyber-btn::before {
+  background: var(--border-color);
+  background-size: 300% 300%;
+  animation: move-bg7234 5s ease infinite;
+  z-index: -2;
+}
+
+@keyframes move-bg7234 {
+  0% {
+    background-position: 31% 0%;
+  }
+  50% {
+    background-position: 70% 100%;
+  }
+  100% {
+    background-position: 31% 0%;
+  }
+}
+
+.cyber-btn::after {
+  background: var(--bg);
+  z-index: -1;
+  clip-path: polygon(
+    var(--border-width) calc(var(--curve-size) + var(--border-width) * 0.5),
+    calc(var(--curve-size) + var(--border-width) * 0.5) var(--border-width),
+    calc(100% - var(--border-width)) var(--border-width),
+    calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+    calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)) calc(100% - var(--border-width)),
+    var(--border-width) calc(100% - var(--border-width))
+  );
+  transition: clip-path 500ms;
+}
+
+.cyber-btn:where(:hover, :focus)::after {
+  clip-path: polygon(
+    calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+    calc(100% - var(--border-width)) var(--border-width),
+    calc(100% - var(--border-width)) var(--border-width),
+    calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+    calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)) calc(100% - var(--border-width)),
+    calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)) calc(100% - var(--border-width))
+  );
+  transition: 200ms;
+}
+
+.cyber-btn:where(:hover, :focus) {
+  color: #010A1A;
+}
+
+.cyber-btn-secondary {
+  --border-color: linear-gradient(-45deg, #04307C, #0A58CA, #CFF40E, #04307C);
+  --bg: #04307C;
+  --color: #ffffff;
+}
+
+.cyber-btn-secondary:where(:hover, :focus) {
+  color: #CFF40E;
+}
+
+/* Cyber Polygon Clip-Path Card Styling (Matches Button Edges & Borders) */
+.cyber-card {
+  --border-color: linear-gradient(-45deg, #CFF40E, #04307C, #0A58CA, #CFF40E);
+  --border-width: 2px;
+  --curve-size: 1rem;
+  --bg: #041B3D;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  clip-path: polygon(
+    0% var(--curve-size),
+    var(--curve-size) 0,
+    100% 0,
+    100% calc(100% - var(--curve-size)),
+    calc(100% - var(--curve-size)) 100%,
+    0 100%
+  );
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.cyber-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--border-color);
+  background-size: 300% 300%;
+  animation: move-bg7234 6s ease infinite;
+  z-index: -2;
+}
+
+.cyber-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+  z-index: -1;
+  clip-path: polygon(
+    var(--border-width) calc(var(--curve-size) + var(--border-width) * 0.5),
+    calc(var(--curve-size) + var(--border-width) * 0.5) var(--border-width),
+    calc(100% - var(--border-width)) var(--border-width),
+    calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+    calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)) calc(100% - var(--border-width)),
+    var(--border-width) calc(100% - var(--border-width))
+  );
+  transition: background 300ms;
+}
+
+.cyber-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(207, 244, 14, 0.2);
+}
+
+/* Hide scrollbar utility for carousel */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
