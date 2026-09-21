@@ -131,11 +131,11 @@ export const Hero: React.FC<HeroProps> = ({ onSearch, onOpenBookingModal }) => {
               </div>
 
               {/* Floating 3D Soccer Ball on Salah's Foot */}
-              <div className="absolute bottom-[37%] left-[10%] z-30 flex flex-col items-center pointer-events-none group">
+              <div className="absolute bottom-[39%] md:bottom-[37%] left-[10%] z-30 flex flex-col items-center pointer-events-none group">
                 <img
                   src="/soccer.png"
                   alt="Soccer Ball"
-                  className=" w-16 drop-shadow-[0_15px_20px_rgba(0,0,0,0.5)] animate-bounce"
+                  className=" w-15 md:w-17 drop-shadow-[0_15px_20px_rgba(0,0,0,0.5)] animate-bounce"
                 />
                 {/* 3D Ball Shadow beneath */}
                 <div className="w-12 h-2.5 bg-black/40 rounded-full blur-xs -mt-1 scale-x-90"></div>
@@ -157,7 +157,7 @@ export const Hero: React.FC<HeroProps> = ({ onSearch, onOpenBookingModal }) => {
               </div>
 
               {/* Floating 3D Padel Ball on the Racket */}
-              <div className="absolute bottom-[30%] right-[5%] sm:bottom-[30%] sm:right-[5%] z-40 flex flex-col items-center pointer-events-none">
+              <div className="absolute bottom-[30%] right-[3%] sm:bottom-[30%] sm:right-[5%] z-40 flex flex-col items-center pointer-events-none">
                 <img
                   src="/badel-ball.png"
                   alt="Padel Ball"
