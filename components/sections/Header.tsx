@@ -41,103 +41,93 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBookingModal }) => {
     <header className={`fixed top-4 inset-x-0 z-50 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pointer-events-none transition-all duration-300 ease-in-out ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-24 opacity-0'
       }`}>
 
-      {/* Floating Rounded Glass Navbar Capsule */}
-      <div className="pointer-events-auto bg-[#010A1A]/85 backdrop-blur-2xl border border-white/20 rounded-full shadow-[0_15px_45px_rgba(0,0,0,0.7)] px-4 sm:px-6 py-2.5 flex items-center justify-between gap-4 transition-all hover:border-white/30">
+      {/* Floating Rounded Glassy Dark Navbar Capsule */}
+      <div className="pointer-events-auto bg-[#02122F] backdrop-blur-2xl border border-white/15 rounded-full shadow-[0_15px_40px_rgba(0,0,0,0.4)] px-4 sm:px-6 py-2.5 flex items-center justify-between gap-4 transition-all hover:border-white/25">
 
         {/* Brand Logo & Tagline */}
         <div className="flex items-center gap-3">
-          <a href="#" className="flex items-center gap-2.5 group">
+          <a href="/" className="flex items-center gap-2.5 group">
             <img
               src="/logo.png"
               alt="Padel & Football Egypt Logo"
-              className="w-20 md:w-30 object-contain group-hover:scale-105 transition-transform"
+              className="w-20 md:w-28 object-contain group-hover:scale-105 transition-transform drop-shadow-md"
             />
-
           </a>
         </div>
 
-        {/* Desktop Navigation Links */}
+        {/* Desktop Navigation Links (with Language Toggle inside Menu List) */}
         <nav className="hidden lg:flex items-center gap-6">
           <a
-            href="#"
-            className="font-cairo text-xs font-bold text-[#CFF40E] bg-white/10 px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm border border-[#CFF40E]/30"
+            href="/courts"
+            className="text-xs font-bold text-slate-200 hover:text-[#CFF40E] transition-colors relative py-1 group"
           >
-            <span className="w-2 h-2 rounded-full bg-[#CFF40E] animate-pulse"></span>
-            {lang === 'ar' ? 'الرئيسية' : 'Home'}
+            <span>{lang === 'ar' ? 'الملاعب' : 'Courts'}</span>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#CFF40E] transition-all group-hover:w-full"></span>
           </a>
           <a
-            href="#courts-section"
-            className="font-cairo text-xs font-semibold text-slate-200 hover:text-[#CFF40E] hover:bg-white/5 px-3 py-1.5 rounded-full transition-all"
+            href="/#matches"
+            className="text-xs font-semibold text-slate-300 hover:text-[#CFF40E] transition-colors relative py-1 group"
           >
-            {lang === 'ar' ? 'الملاعب' : 'Courts'}
+            <span>{lang === 'ar' ? 'المباريات' : 'Matches'}</span>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#CFF40E] transition-all group-hover:w-full"></span>
           </a>
           <a
-            href="#how-it-works"
-            className="font-cairo text-xs font-semibold text-slate-200 hover:text-[#CFF40E] hover:bg-white/5 px-3 py-1.5 rounded-full transition-all"
+            href="/#store"
+            className="text-xs font-semibold text-slate-300 hover:text-[#CFF40E] transition-colors relative py-1 group"
           >
-            {lang === 'ar' ? 'إزاي تحجز؟' : 'How It Works'}
+            <span>{lang === 'ar' ? 'المتجر' : 'Store'}</span>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#CFF40E] transition-all group-hover:w-full"></span>
           </a>
           <a
-            href="#featured-showcase"
-            className="font-cairo text-xs font-semibold text-slate-200 hover:text-[#CFF40E] hover:bg-white/5 px-3 py-1.5 rounded-full transition-all"
+            href="/#tournaments"
+            className="text-xs font-semibold text-slate-300 hover:text-[#CFF40E] transition-colors relative py-1 group"
           >
-            {lang === 'ar' ? 'ملاعب تريند' : 'Trending'}
+            <span>{lang === 'ar' ? 'البطولات' : 'Tournaments'}</span>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#CFF40E] transition-all group-hover:w-full"></span>
           </a>
           <a
-            href="#court-owners-section"
-            className="font-cairo text-xs font-semibold text-slate-200 hover:text-[#CFF40E] hover:bg-white/5 px-3 py-1.5 rounded-full transition-all"
+            href="/#about"
+            className="text-xs font-semibold text-slate-300 hover:text-[#CFF40E] transition-colors relative py-1 group"
           >
-            {lang === 'ar' ? 'لأصحاب الملاعب' : 'For Owners'}
+            <span>{lang === 'ar' ? 'من نحن' : 'About Us'}</span>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#CFF40E] transition-all group-hover:w-full"></span>
           </a>
-          <a
-            href="#reviews-section"
-            className="font-cairo text-xs font-semibold text-slate-200 hover:text-[#CFF40E] hover:bg-white/5 px-3 py-1.5 rounded-full transition-all"
-          >
-            {lang === 'ar' ? 'آراء اللاعبين' : 'Reviews'}
-          </a>
-        </nav>
 
-        {/* Right Action Bar */}
-        <div className="flex items-center gap-2.5">
-
-          {/* Language Switcher */}
+          {/* Language Toggle in Menu List */}
           <button
             onClick={toggleLanguage}
-            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/15 bg-white/5 hover:bg-white/15 hover:border-[#CFF40E]/50 text-xs font-bold text-white transition-all font-cairo cursor-pointer backdrop-blur-md"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/15 bg-white/10 hover:bg-white/20 hover:border-white/30 text-xs font-bold text-slate-200 hover:text-white transition-all cursor-pointer ms-2"
           >
             <Globe className="w-3.5 h-3.5 text-[#CFF40E]" />
-            <span>{t('langToggle')}</span>
+            <span>{lang === 'ar' ? 'English' : 'العربية'}</span>
+          </button>
+        </nav>
+
+        {/* Right Action Bar (Sign In + Book Now CTA + Mobile Hamburger) */}
+        <div className="flex items-center gap-3">
+
+          {/* Sign In Button */}
+          <button
+            onClick={() => onOpenBookingModal()}
+            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/15 hover:border-white/30 hover:bg-white/10 text-xs font-bold text-slate-200 hover:text-white transition-all cursor-pointer"
+          >
+            <User className="w-3.5 h-3.5 text-slate-400" />
+            <span>{lang === 'ar' ? 'تسجيل الدخول' : 'Sign In'}</span>
           </button>
 
-          {/* Register Venue Button */}
-          <a
-            href="#court-owners-section"
-            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/15 bg-white/5 hover:bg-white/15 hover:border-white/30 text-xs font-bold text-white transition-all font-cairo backdrop-blur-md"
-          >
-            <Building2 className="w-3.5 h-3.5 text-[#CFF40E]" />
-            <span>{lang === 'ar' ? 'سجّل ملعبك' : 'Register Venue'}</span>
-          </a>
-
-          {/* Book Court Primary CTA */}
+          {/* Book Now Primary CTA */}
           <Button
             size="sm"
             onClick={() => onOpenBookingModal()}
           >
-            {lang === 'ar' ? 'احجز ملعب' : 'Book Court'}
+            {lang === 'ar' ? 'احجز الآن' : 'Book Now'}
           </Button>
-
-          {/* Profile Icon */}
-          <button
-            aria-label="Profile"
-            className="w-9 h-9 rounded-full bg-white/5 border border-white/15 flex items-center justify-center text-slate-200 hover:text-[#CFF40E] hover:border-[#CFF40E]/50 transition-colors backdrop-blur-md cursor-pointer"
-          >
-            <User className="w-4 h-4" />
-          </button>
 
           {/* Mobile Menu Toggle Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-slate-200 hover:text-white bg-white/10 rounded-full border border-white/15 cursor-pointer backdrop-blur-md"
+            className="lg:hidden p-2 text-slate-200 hover:text-white bg-white/10 hover:bg-white/15 rounded-full border border-white/15 cursor-pointer"
+            aria-label="Toggle Navigation"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -146,36 +136,50 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBookingModal }) => {
 
       </div>
 
-      {/* Floating Mobile Drawer */}
+      {/* Floating Mobile Drawer (Glassy Dark) */}
       {mobileMenuOpen && (
-        <div className="pointer-events-auto mt-3 bg-[#010A1A]/95 border border-white/20 rounded-3xl p-6 space-y-4 animate-in slide-in-from-top-4 duration-200 font-cairo backdrop-blur-2xl text-white shadow-2xl">
-          <nav className="flex flex-col gap-3">
-            <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-sm font-bold text-[#CFF40E]">
-              {lang === 'ar' ? 'الرئيسية' : 'Home'}
-            </a>
-            <a href="#courts-section" onClick={() => setMobileMenuOpen(false)} className="text-sm font-semibold text-slate-200 hover:text-[#CFF40E]">
+        <div className="pointer-events-auto mt-3 bg-[#02122F]/95 border border-white/15 rounded-3xl p-6 space-y-4 animate-in slide-in-from-top-4 duration-200 backdrop-blur-2xl text-white shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
+          <nav className="flex flex-col gap-3.5">
+            <a href="/courts" onClick={() => setMobileMenuOpen(false)} className="text-sm font-bold text-white hover:text-[#CFF40E] transition-colors">
               {lang === 'ar' ? 'الملاعب' : 'Courts'}
             </a>
-            <a href="#how-it-works" onClick={() => setMobileMenuOpen(false)} className="text-sm font-semibold text-slate-200 hover:text-[#CFF40E]">
-              {lang === 'ar' ? 'إزاي تحجز؟' : 'How It Works'}
+            <a href="/#matches" onClick={() => setMobileMenuOpen(false)} className="text-sm font-semibold text-slate-300 hover:text-[#CFF40E] transition-colors">
+              {lang === 'ar' ? 'المباريات' : 'Matches'}
             </a>
-            <a href="#featured-showcase" onClick={() => setMobileMenuOpen(false)} className="text-sm font-semibold text-slate-200 hover:text-[#CFF40E]">
-              {lang === 'ar' ? 'ملاعب تريند' : 'Trending'}
+            <a href="/#store" onClick={() => setMobileMenuOpen(false)} className="text-sm font-semibold text-slate-300 hover:text-[#CFF40E] transition-colors">
+              {lang === 'ar' ? 'المتجر' : 'Store'}
             </a>
-            <a href="#court-owners-section" onClick={() => setMobileMenuOpen(false)} className="text-sm font-semibold text-slate-200 hover:text-[#CFF40E]">
-              {lang === 'ar' ? 'لأصحاب الملاعب' : 'For Owners'}
+            <a href="/#tournaments" onClick={() => setMobileMenuOpen(false)} className="text-sm font-semibold text-slate-300 hover:text-[#CFF40E] transition-colors">
+              {lang === 'ar' ? 'البطولات' : 'Tournaments'}
             </a>
-            <a href="#reviews-section" onClick={() => setMobileMenuOpen(false)} className="text-sm font-semibold text-slate-200 hover:text-[#CFF40E]">
-              {lang === 'ar' ? 'آراء اللاعبين' : 'Reviews'}
+            <a href="/#about" onClick={() => setMobileMenuOpen(false)} className="text-sm font-semibold text-slate-300 hover:text-[#CFF40E] transition-colors">
+              {lang === 'ar' ? 'من نحن' : 'About Us'}
             </a>
-          </nav>
-          <div className="pt-4 border-t border-white/15 flex flex-col gap-3">
+
+            {/* Language Toggle in Mobile Menu List */}
             <button
-              onClick={toggleLanguage}
-              className="py-2.5 text-xs font-bold text-white bg-white/10 border border-white/20 rounded-full"
+              onClick={() => {
+                toggleLanguage();
+                setMobileMenuOpen(false);
+              }}
+              className="flex items-center gap-2 text-sm font-bold text-[#CFF40E] hover:text-white transition-colors py-1 cursor-pointer text-start"
             >
-              {t('langToggle')}
+              <Globe className="w-4 h-4 text-[#CFF40E]" />
+              <span>{lang === 'ar' ? 'English' : 'العربية'}</span>
             </button>
+          </nav>
+
+          <div className="pt-4 border-t border-white/10 flex flex-col gap-3">
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenBookingModal();
+              }}
+              className="py-2.5 px-4 text-xs font-bold text-slate-200 hover:text-white border border-white/15 rounded-full bg-white/5 hover:bg-white/10 transition-colors"
+            >
+              {lang === 'ar' ? 'تسجيل الدخول' : 'Sign In'}
+            </button>
+
             <Button
               fullWidth
               size="md"
@@ -184,7 +188,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBookingModal }) => {
                 onOpenBookingModal();
               }}
             >
-              {lang === 'ar' ? 'احجز ملعبك الآن' : 'Book Your Court'}
+              {lang === 'ar' ? 'احجز الآن' : 'Book Now'}
             </Button>
           </div>
         </div>

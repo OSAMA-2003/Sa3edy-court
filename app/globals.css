@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,400..900;1,400..900&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -17,17 +17,17 @@
   --color-court-blue: #0A58CA;
   --color-court-turf: #0047AB;
 
+  --font-alexandria: 'Alexandria', sans-serif;
   --font-montserrat: 'Montserrat', sans-serif;
-  --font-tajawal: 'Tajawal', sans-serif;
-  --font-allura: 'Allura', cursive;
-  --font-cairo: 'Tajawal', sans-serif;
+  --font-cairo: 'Alexandria', sans-serif;
+  --font-tajawal: 'Alexandria', sans-serif;
   --font-grotesk: 'Montserrat', sans-serif;
-  --font-sans: 'Montserrat', 'Tajawal', sans-serif;
+  --font-sans: 'Alexandria', 'Montserrat', sans-serif;
 }
 
 :root {
-  --background: #F8FAFC;
-  --foreground: #0F172A;
+  --background: #FFFFFF;
+  --foreground: #02122F;
 }
 
 html,
@@ -36,33 +36,36 @@ body {
   padding: 0;
   background-color: var(--background);
   color: var(--foreground);
-  font-family: 'Montserrat', 'Tajawal', sans-serif;
+  font-family: 'Alexandria', 'Montserrat', sans-serif;
   overflow-x: hidden;
+  letter-spacing: -0.01em;
+  line-height: 1.6;
 }
 
 h1,
 h2,
 h3,
-.font-grotesk,
-.font-montserrat {
-  font-family: 'Montserrat', 'Tajawal', sans-serif;
+h4 {
+  font-family: 'Alexandria', 'Montserrat', sans-serif;
+  letter-spacing: -0.02em;
 }
 
+.font-alexandria,
 .font-cairo,
 .font-tajawal {
-  font-family: 'Tajawal', sans-serif;
+  font-family: 'Alexandria', sans-serif;
 }
 
-.font-allura,
-.font-accent {
-  font-family: 'Allura', cursive;
+.font-montserrat,
+.font-grotesk {
+  font-family: 'Montserrat', sans-serif;
 }
 
 [dir="rtl"] body,
 [dir="rtl"] h1,
 [dir="rtl"] h2,
 [dir="rtl"] h3 {
-  font-family: 'Tajawal', 'Montserrat', sans-serif;
+  font-family: 'Alexandria', 'Montserrat', sans-serif;
 }
 
 /* Responsive Hero Background Classes */
@@ -139,7 +142,7 @@ h3,
 
 /* Cyber Polygon Clip-Path Button Styling */
 .cyber-btn {
-  --border-color: linear-gradient(-45deg, #CFF40E, #04307C, #0A58CA, #CFF40E);
+  --border-color: linear-gradient(-45deg, #CFF40E, #04307C, #FFFFFF, #CFF40E);
   --border-width: 0.125em;
   --curve-size: 0.5em;
   --blur: 30px;
@@ -237,7 +240,7 @@ h3,
 
 /* Cyber Polygon Clip-Path Card Styling (Matches Button Edges & Borders) */
 .cyber-card {
-  --border-color: linear-gradient(-45deg, #CFF40E, #04307C, #0A58CA, #CFF40E);
+  --border-color: linear-gradient(-45deg, #CFF40E, #04307C, #FFFFFF, #CFF40E);
   --border-width: 2px;
   --curve-size: 1rem;
   --bg: #041B3D;

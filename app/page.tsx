@@ -4,9 +4,11 @@ import React, { useState } from 'react';
 import { LanguageProvider } from '../i18n/LanguageContext';
 import { Header } from '../components/sections/Header';
 import { Hero } from '../components/sections/Hero';
+import { HeroStats } from '../components/sections/HeroStats';
 import { CourtSearchBooking } from '../components/sections/CourtSearchBooking';
 import { HowItWorks } from '../components/sections/HowItWorks';
 import { TrendingShowcase } from '../components/sections/TrendingShowcase';
+import { WhyChooseUs } from '../components/sections/WhyChooseUs';
 import { CourtOwnersBanner } from '../components/sections/CourtOwnersBanner';
 import { Testimonials } from '../components/sections/Testimonials';
 import { FinalCallToAction } from '../components/sections/FinalCallToAction';
@@ -31,40 +33,46 @@ function LandingPageContent() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-[#CFF40E] selection:text-[#010A1A]">
-      
+    <div className="min-h-screen flex flex-col bg-white text-[#02122F] font-sans selection:bg-[#CFF40E] selection:text-[#010A1A]">
+
       {/* Top Header */}
       <Header onOpenBookingModal={handleOpenBookingModal} />
 
-      {/* Main Sections - Zero top padding so Hero extends all the way to top under floating navbar */}
+      {/* Main Sections - Zero top whitespace, coherent visual rhythm */}
       <main className="flex-1">
-        
-        {/* Full Viewport Height Hero & Stats Banner */}
+
+        {/* 1. Hero Section */}
         <Hero
           onSearch={scrollToCourts}
           onOpenBookingModal={handleOpenBookingModal}
         />
 
-        {/* Instant Booking Courts Grid */}
+        {/* 2. Hero Standalone Stats Section */}
+        <HeroStats />
+
+        {/* 3. Instant Booking / Popular Courts Carousel */}
         <CourtSearchBooking
           selectedCity={selectedCity}
           setSelectedCity={setSelectedCity}
           onOpenBookingModal={handleOpenBookingModal}
         />
 
-        {/* How It Works Steps (01, 02, 03) */}
+        {/* 5. How It Works (Connected 01 -> 02 -> 03) */}
         <HowItWorks />
 
-        {/* Trending Showcase & Racket Gear Specs */}
+        {/* 6. Official Championships & Tournaments Showcase */}
         <TrendingShowcase onOpenBookingModal={handleOpenBookingModal} />
 
-        {/* Venue Owners Partnership Banner */}
+        {/* 7. Why Choose Us (4 Benefits) */}
+        <WhyChooseUs />
+
+        {/* 8. Venue Owners Partnership Banner */}
         <CourtOwnersBanner />
 
-        {/* Player & Owner Reviews */}
+        {/* 9. Player & Owner Reviews Marquee */}
         <Testimonials />
 
-        {/* Final High Energy CTA */}
+        {/* 10. Final Call To Action */}
         <FinalCallToAction onOpenBookingModal={handleOpenBookingModal} />
 
       </main>
@@ -91,3 +99,4 @@ export default function Home() {
     </LanguageProvider>
   );
 }
+
