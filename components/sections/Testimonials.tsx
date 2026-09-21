@@ -19,9 +19,7 @@ export const Testimonials: React.FC = () => {
 
         {/* Section Title */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#04307C]/10 border border-[#04307C]/20 text-[#04307C] text-xs font-bold uppercase tracking-wider mb-3">
-            <span>{lang === 'ar' ? 'مجتمع لاعبي الصعيد' : 'PLAYER COMMUNITY'}</span>
-          </div>
+
           <TextAnimate
             animation="blurInUp"
             by="word"

@@ -220,10 +220,10 @@ export const DEMO_PACKAGES = [
 ];
 
 export const PLATFORM_STATS = [
-  { id: 'stat-1', num: '+28', progress: 88, labelEn: 'Padel & Football Courts in Upper Egypt', labelAr: 'ملعب باديل وخماسي بالصعيد' },
-  { id: 'stat-2', num: '+5K', progress: 92, labelEn: 'Active Players in Assiut & Sohag', labelAr: 'لاعب نشط بأسيوط وسوهاج' },
-  { id: 'stat-3', num: '99%', progress: 99, labelEn: 'Time Slot Accuracy', labelAr: 'دقة المواعيد بالملاعب' },
-  { id: 'stat-4', num: '+12K', progress: 95, labelEn: 'Hours Booked', labelAr: 'ساعة محجوزة بالصعيد' },
+  { id: 'stat-1', value: 28, prefix: '+', suffix: '', num: '+28', progress: 88, growthAr: '+18% شهرياً', growthEn: '+18% MoM', labelEn: 'Padel & Football Courts', labelAr: 'ملعب بادل وخماسي' },
+  { id: 'stat-2', value: 5, prefix: '+', suffix: 'K', num: '+5K', progress: 92, growthAr: '+24% أسبوعياً', growthEn: '+24% WoW', labelEn: 'Active Local Players', labelAr: 'لاعب نشط بالصعيد' },
+  { id: 'stat-3', value: 99, prefix: '', suffix: '%', num: '99%', progress: 99, growthAr: 'دقة 100%', growthEn: '100% On-time', labelEn: 'Time Slot Accuracy', labelAr: 'دقة المواعيد بالملاعب' },
+  { id: 'stat-4', value: 12, prefix: '+', suffix: 'K', num: '+12K', progress: 95, growthAr: '+35% بطولات', growthEn: '+35% Tournaments', labelEn: 'Hours Booked', labelAr: 'ساعة محجوزة بالصعيد' },
 ];
 
 export const DEMO_TESTIMONIALS = [

@@ -42,16 +42,13 @@ export const CourtSearchBooking: React.FC<CourtSearchBookingProps> = ({
   };
 
   return (
-    <section className="w-full pt-16 sm:pt-20 pb-16 lg:pb-20 bg-[#F8FAFC] border-b border-slate-200 text-[#02122F] relative overflow-hidden" id="courts-section">
+    <section className="w-full pt-20 sm:pt-30 pb-16 lg:pb-20 bg-[#F8FAFC] border-b border-slate-200 text-[#02122F] relative overflow-hidden" id="courts-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-8">
 
         {/* Section Title & Controls Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div className="flex flex-col items-start text-start">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#04307C]/10 border border-[#04307C]/20 text-[#04307C] text-xs font-bold mb-2">
-              <span className="w-2 h-2 rounded-full bg-[#04307C]"></span>
-              <span>{lang === 'ar' ? 'أفضل الملاعب في الصعيد' : 'Top Rated Courts in Upper Egypt'}</span>
-            </div>
+
             <TextAnimate
               animation="slideLeft"
               by="word"

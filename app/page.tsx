@@ -48,7 +48,7 @@ function LandingPageContent() {
         />
 
         {/* 2. Hero Standalone Stats Section */}
-        <HeroStats />
+        {/* <HeroStats /> */}
 
         {/* 3. Instant Booking / Popular Courts Carousel */}
         <CourtSearchBooking
@@ -58,13 +58,13 @@ function LandingPageContent() {
         />
 
         {/* 5. How It Works (Connected 01 -> 02 -> 03) */}
-        <HowItWorks />
+        {/* <HowItWorks /> */}
 
         {/* 6. Official Championships & Tournaments Showcase */}
         <TrendingShowcase onOpenBookingModal={handleOpenBookingModal} />
 
         {/* 7. Why Choose Us (4 Benefits) */}
-        <WhyChooseUs />
+        {/* <WhyChooseUs /> */}
 
         {/* 8. Venue Owners Partnership Banner */}
         <CourtOwnersBanner />
