@@ -16,8 +16,8 @@ export const FinalCallToAction: React.FC<FinalCallToActionProps> = ({ onOpenBook
   return (
     <section className="w-full py-16 lg:py-24 bg-white relative overflow-hidden border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="relative bg-[#041B3D] border border-white/15 rounded-3xl p-8 sm:p-14 text-center flex flex-col items-center gap-6 shadow-2xl overflow-hidden [clip-path:polygon(0%_1.5rem,1.5rem_0%,100%_0%,100%_calc(100%-1.5rem),calc(100%-1.5rem)_100%,0%_100%)]">
-          
+        <div className="relative bg-gradient-to-r from-[#04307C] via-[#041B3D] to-[#010A1A] border border-white/15 rounded-3xl p-8 sm:p-14 text-center flex flex-col items-center gap-6 shadow-2xl overflow-hidden [clip-path:polygon(0%_1.5rem,1.5rem_0%,100%_0%,100%_calc(100%-1.5rem),calc(100%-1.5rem)_100%,0%_100%)]">
+
           {/* Subtle lime accent top highlight */}
           <div className="absolute top-0 inset-x-1/3 h-1 bg-[#CFF40E]/80 rounded-full shadow-[0_0_15px_rgba(207,244,14,0.6)]"></div>
 
