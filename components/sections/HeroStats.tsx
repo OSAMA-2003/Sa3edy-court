@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { CalendarCheck, Award, Users, Trophy } from 'lucide-react';
+import { AnimatedCounter } from '../ui/AnimatedCounter';
 
 export const HeroStats: React.FC = () => {
   const { lang } = useLanguage();
@@ -16,7 +17,8 @@ export const HeroStats: React.FC = () => {
   const stats = [
     {
       id: 'stat-1',
-      num: '12K+',
+      value: 12,
+      suffix: 'K+',
       labelAr: 'حجز مؤكد بالمنصة',
       labelEn: 'Confirmed Bookings',
       icon: CalendarCheck,
@@ -25,7 +27,8 @@ export const HeroStats: React.FC = () => {
     },
     {
       id: 'stat-2',
-      num: '99%',
+      value: 99,
+      suffix: '%',
       labelAr: 'نسبة رضا اللاعبين',
       labelEn: 'Player Satisfaction',
       icon: Award,
@@ -34,7 +37,8 @@ export const HeroStats: React.FC = () => {
     },
     {
       id: 'stat-3',
-      num: '5K+',
+      value: 5,
+      suffix: 'K+',
       labelAr: 'لاعب نشط بالصعيد',
       labelEn: 'Active Players',
       icon: Users,
@@ -43,7 +47,8 @@ export const HeroStats: React.FC = () => {
     },
     {
       id: 'stat-4',
-      num: '28+',
+      value: 28,
+      suffix: '+',
       labelAr: 'ملعب بادل وخماسي',
       labelEn: 'Certified Venues',
       icon: Trophy,
@@ -105,7 +110,7 @@ export const HeroStats: React.FC = () => {
           <div className="lg:col-span-3 p-6 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm hidden md:flex flex-col justify-between text-start">
             <div>
               <div className="text-3xl font-black text-[#02122F] font-montserrat">
-                100<span className="text-[#04307C]">+</span>
+                <AnimatedCounter end={100} suffix="+" duration={2000} />
               </div>
               <h4 className="text-sm font-bold text-[#02122F] mt-1">
                 {lang === 'ar' ? 'حكم ومنسق معتمد' : 'Certified Officials'}
@@ -118,22 +123,24 @@ export const HeroStats: React.FC = () => {
             <div className="space-y-2 pt-4 border-t border-slate-200">
               <div className="flex items-center justify-between text-[11px] font-bold text-slate-700">
                 <span>{lang === 'ar' ? 'بادل بانورامي' : 'Padel Pro'}</span>
-                <span className="text-[#04307C]">98%</span>
+                <span className="text-[#04307C] font-montserrat font-bold">
+                  <AnimatedCounter end={98} suffix="%" duration={1600} />
+                </span>
               </div>
               <div className="w-full h-2 rounded-full bg-slate-200 overflow-hidden">
-                <div className="h-full rounded-full bg-[#04307C] w-[98%]"></div>
+                <div className={`h-full rounded-full bg-[#04307C] transition-all duration-1000 ${isVisible ? 'w-[98%]' : 'w-0'}`}></div>
               </div>
             </div>
           </div>
 
         </div>
 
-        {/* The 4 Core Stats Row */}
+        {/* The 4 Core Stats Row with Animated Numbers */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-4 border-t border-slate-200">
           {stats.map((item) => (
             <div key={item.id} className="text-start flex flex-col gap-1">
               <div className="text-3xl sm:text-5xl font-black text-[#02122F] tracking-tight font-montserrat flex items-baseline gap-1">
-                <span>{item.num}</span>
+                <AnimatedCounter end={item.value} suffix={item.suffix} duration={1800} />
                 <span className="w-2 h-2 rounded-full bg-[#CFF40E]"></span>
               </div>
               <h4 className="text-sm sm:text-base font-bold text-slate-900 mt-1">
@@ -150,3 +157,4 @@ export const HeroStats: React.FC = () => {
     </section>
   );
 };
+
