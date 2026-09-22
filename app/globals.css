@@ -238,7 +238,67 @@ h4 {
   color: #CFF40E;
 }
 
-/* Cyber Polygon Clip-Path Card Styling (Matches Button Edges & Borders) */
+/* Cyber Polygon Clip-Path Card Component (Matches Button Component Edges & Border) */
+.cyber-card-outer {
+  --curve-size: 1.25rem;
+  --border-gradient: linear-gradient(-45deg, #CFF40E, #04307C, #FFFFFF, #CFF40E);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+  background: var(--border-gradient);
+  background-size: 300% 300%;
+  animation: move-bg7234 6s ease infinite;
+  clip-path: polygon(
+    0% var(--curve-size),
+    var(--curve-size) 0,
+    100% 0,
+    100% calc(100% - var(--curve-size)),
+    calc(100% - var(--curve-size)) 100%,
+    0 100%
+  );
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.08));
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1), filter 300ms ease;
+}
+
+.cyber-card-outer:hover {
+  transform: translateY(-6px);
+  filter: drop-shadow(0 18px 30px rgba(207, 244, 14, 0.28));
+}
+
+.cyber-card-outer.secondary {
+  --border-gradient: linear-gradient(-45deg, #04307C, #0A58CA, #CFF40E, #04307C);
+}
+
+.cyber-card-outer.secondary:hover {
+  filter: drop-shadow(0 18px 30px rgba(4, 48, 124, 0.35));
+}
+
+.cyber-card-inner {
+  --curve-size: 1.25rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  clip-path: polygon(
+    0% calc(var(--curve-size) - 1.5px),
+    calc(var(--curve-size) - 1.5px) 0,
+    100% 0,
+    100% calc(100% - (var(--curve-size) - 1.5px)),
+    calc(100% - (var(--curve-size) - 1.5px)) 100%,
+    0 100%
+  );
+  background: #ffffff;
+  transition: background 300ms;
+}
+
+.cyber-card-outer.dark .cyber-card-inner {
+  background: #010A1A;
+}
+
+/* Legacy Cyber Polygon Clip-Path Card */
 .cyber-card {
   --border-color: linear-gradient(-45deg, #CFF40E, #04307C, #FFFFFF, #CFF40E);
   --border-width: 2px;

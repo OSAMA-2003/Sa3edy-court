@@ -708,7 +708,7 @@ function AboutPageContent() {
         isOpen={bookingModalOpen}
         onClose={() => setBookingModalOpen(false)}
         courtId={activeCourtId}
-        initialSlot="19:00"
+        initialSlot="7:00 PM"
       />
 
       {/* Global Footer */}

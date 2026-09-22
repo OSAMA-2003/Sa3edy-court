@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   keywords: ["حجز ملاعب أسيوط", "حجز ملاعب سوهاج", "ملاعب باديل الصعيد", "ملاعب كرة قدم خماسي أسيوط", "Padel Assiut", "Football Sohag"],
 };
 
+import { AppProviders } from "../components/providers/AppProviders";
+
 export default function RootLayout({
   children,
 }: {
@@ -15,7 +17,9 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" className="h-full scroll-smooth antialiased dark">
       <body className="min-h-full flex flex-col bg-[#02122f] text-slate-100 selection:bg-[#cff40e] selection:text-[#02122f]">
-        {children}
+        <AppProviders>
+          {children}
+        </AppProviders>
       </body>
     </html>
   );

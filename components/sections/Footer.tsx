@@ -118,6 +118,8 @@ export const Footer: React.FC = () => {
             <ul className="flex flex-col gap-2.5 text-xs text-slate-300">
               <li><a href="/about" className="hover:text-[#CFF40E] transition-colors">{lang === 'ar' ? 'من نحن وقصتنا' : 'About Us'}</a></li>
               <li><a href="/courts" className="hover:text-[#CFF40E] transition-colors">{lang === 'ar' ? 'دليل الملاعب' : 'Courts Directory'}</a></li>
+              <li><a href="/profile" className="hover:text-[#CFF40E] transition-colors">{lang === 'ar' ? 'حسابي وحجوزاتي' : 'My Profile & Bookings'}</a></li>
+              <li><a href="/privacy" className="hover:text-[#CFF40E] transition-colors font-semibold text-[#CCFF00]">{lang === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'}</a></li>
               <li><a href="/#tournaments" className="hover:text-[#CFF40E] transition-colors">{lang === 'ar' ? 'البطولات الرسمية' : 'Tournaments'}</a></li>
               <li><a href="/#reviews-section" className="hover:text-[#CFF40E] transition-colors">{lang === 'ar' ? 'آراء اللاعبين' : 'Reviews'}</a></li>
             </ul>
@@ -143,8 +145,12 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <div>
-            © {new Date().getFullYear()} PADEL & FOOTBALL EGYPT. {t('rights')}
+          <div className="flex items-center gap-3 flex-wrap">
+            <span>© {new Date().getFullYear()} PADEL & FOOTBALL EGYPT. {t('rights')}</span>
+            <span>•</span>
+            <a href="/privacy" className="hover:text-[#CFF40E] transition-colors underline">
+              {lang === 'ar' ? 'سياسة الخصوصية القانونية' : 'Privacy Policy'}
+            </a>
           </div>
           <div className="flex items-center gap-2">
             <span>Made for Upper Egypt Sports Community</span>

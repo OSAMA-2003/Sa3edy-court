@@ -19,7 +19,7 @@ function LandingPageContent() {
   const [selectedCity, setSelectedCity] = useState('all');
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [activeCourtId, setActiveCourtId] = useState<string>('court-1');
-  const [activeSlot, setActiveSlot] = useState<string>('19:00');
+  const [activeSlot, setActiveSlot] = useState<string>('7:00 PM');
 
   const handleOpenBookingModal = (courtId?: string, slot?: string) => {
     if (courtId) setActiveCourtId(courtId);

@@ -1,10 +1,13 @@
 'use client';
 
 import React, { useRef } from 'react';
+import Link from 'next/link';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { DEMO_COURTS, EGYPT_CITIES } from '../../data';
 import { Star, ChevronLeft, ChevronRight, MapPin } from 'lucide-react';
 import { Button } from '../ui/Button';
+import { Card } from '../ui/Card';
+import { GiSoccerBall, GiTennisBall } from 'react-icons/gi';
 import { TextAnimate } from '../ui/text-animate';
 
 interface CourtSearchBookingProps {
@@ -103,9 +106,9 @@ export const CourtSearchBooking: React.FC<CourtSearchBookingProps> = ({
           className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar py-3 px-1"
         >
           {filteredCourts.map((court) => (
-            <div
+            <Card
               key={court.id}
-              className="snap-start shrink-0 w-[300px] sm:w-[340px] bg-white border border-slate-200/90 hover:border-[#02122F] rounded-2xl group overflow-hidden transition-all duration-300 hover:-translate-y-1.5 shadow-sm hover:shadow-xl flex flex-col justify-between"
+              className="snap-start shrink-0 w-[300px] sm:w-[340px] text-start group"
             >
               {/* Image Header ~50-55% height */}
               <div className="relative h-56 w-full overflow-hidden bg-slate-100">
@@ -117,12 +120,30 @@ export const CourtSearchBooking: React.FC<CourtSearchBookingProps> = ({
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
 
                 {/* Sport Type Badge */}
-                <div className="absolute top-3 left-3 bg-[#010A1A]/90 backdrop-blur-md text-white border border-white/20 px-2.5 py-1 rounded-md text-[11px] font-bold uppercase">
-                  {court.type === 'football' ? 'Football' : 'Padel'}
+                <div className="absolute top-3.5 start-3.5">
+                  <span
+                    className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-black shadow-md border ${
+                      court.type === 'football'
+                        ? 'bg-[#02122F] text-[#CFF40E] border-[#CFF40E]/40'
+                        : 'bg-[#02122F] text-[#00D2FF] border-[#00D2FF]/40'
+                    }`}
+                  >
+                    {court.type === 'football' ? (
+                      <>
+                        <GiSoccerBall className="w-3.5 h-3.5 shrink-0" />
+                        <span>{lang === 'ar' ? 'كرة قدم' : 'Football'}</span>
+                      </>
+                    ) : (
+                      <>
+                        <GiTennisBall className="w-3.5 h-3.5 shrink-0" />
+                        <span>{lang === 'ar' ? 'باديل' : 'Padel'}</span>
+                      </>
+                    )}
+                  </span>
                 </div>
 
                 {/* Rating Badge */}
-                <div className="absolute top-3 right-3 bg-[#010A1A]/90 backdrop-blur-md px-2.5 py-1 rounded-md text-xs font-bold text-white flex items-center gap-1 border border-white/15 shadow-sm">
+                <div className="absolute top-3.5 end-3.5 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-xl text-xs font-bold text-white flex items-center gap-1 border border-white/15 shadow-sm font-mono">
                   <Star className="w-3.5 h-3.5 fill-[#CFF40E] text-[#CFF40E]" />
                   <span>{court.rating}</span>
                 </div>
@@ -138,7 +159,7 @@ export const CourtSearchBooking: React.FC<CourtSearchBookingProps> = ({
                   <p className="text-xs text-slate-500 flex items-center gap-1.5 mt-2 font-medium">
                     <MapPin className="w-3.5 h-3.5 text-[#04307C] shrink-0" />
                     <span>
-                      {lang === 'ar' ? court.locationAr : court.locationEn} · {court.type === 'football' ? 'كرة قدم' : 'بادل'}
+                      {lang === 'ar' ? court.locationAr : court.locationEn} · {court.type === 'football' ? (lang === 'ar' ? 'كرة قدم' : 'Football') : (lang === 'ar' ? 'باديل' : 'Padel')}
                     </span>
                   </p>
                 </div>
@@ -154,16 +175,17 @@ export const CourtSearchBooking: React.FC<CourtSearchBookingProps> = ({
                     </span>
                   </div>
 
-                  <Button
-                    size="sm"
-                    onClick={() => onOpenBookingModal(court.id)}
-                  >
-                    {lang === 'ar' ? 'احجز الآن' : 'Book Now'}
-                  </Button>
+                  <Link href={`/book?courtId=${court.id}`}>
+                    <Button
+                      size="sm"
+                    >
+                      {lang === 'ar' ? 'احجز الآن' : 'Book Now'}
+                    </Button>
+                  </Link>
                 </div>
               </div>
 
-            </div>
+            </Card>
           ))}
         </div>
 

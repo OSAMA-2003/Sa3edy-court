@@ -20,14 +20,14 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   isOpen,
   onClose,
   courtId = 'court-1',
-  initialSlot = '19:00',
+  initialSlot = '7:00 PM',
 }) => {
   const { t, lang } = useLanguage();
   
   const court = DEMO_COURTS.find((c) => c.id === courtId) || DEMO_COURTS[0];
 
   const [selectedSlot, setSelectedSlot] = useState(initialSlot || court.availableSlots[0]);
-  const [duration, setDuration] = useState('1.5'); // 1.5 hours standard
+  const [duration, setDuration] = useState('1');
   const [racketAddon, setRacketAddon] = useState(false);
   const [ballsAddon, setBallsAddon] = useState(false);
   const [name, setName] = useState('');
@@ -155,8 +155,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               onChange={(e) => setDuration(e.target.value)}
               options={[
                 { value: '1', label: t('hour1') },
-                { value: '1.5', label: t('hour15') },
                 { value: '2', label: t('hour2') },
+                { value: '3', label: t('hour3') },
               ]}
             />
 

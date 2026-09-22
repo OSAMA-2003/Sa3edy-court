@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { Globe, Menu, X, User, Building2 } from 'lucide-react';
+import Link from 'next/link';
+import { useAuth } from '../../context/AuthContext';
 import { Button } from '../ui/Button';
 
 interface HeaderProps {
@@ -11,7 +13,9 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ onOpenBookingModal }) => {
   const { t, lang, toggleLanguage } = useLanguage();
+  const { currentUser, logout } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -106,22 +110,69 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBookingModal }) => {
         {/* Right Action Bar (Sign In + Book Now CTA + Mobile Hamburger) */}
         <div className="flex items-center gap-3">
 
-          {/* Sign In Button */}
-          <button
-            onClick={() => onOpenBookingModal()}
-            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/15 hover:border-white/30 hover:bg-white/10 text-xs font-bold text-slate-200 hover:text-white transition-all cursor-pointer"
-          >
-            <User className="w-3.5 h-3.5 text-slate-400" />
-            <span>{lang === 'ar' ? 'تسجيل الدخول' : 'Sign In'}</span>
-          </button>
+          {/* User Auth or Sign In Button */}
+          {currentUser ? (
+            <div className="relative">
+              <button
+                onClick={() => setUserMenuOpen(!userMenuOpen)}
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#CCFF00]/40 bg-[#CCFF00]/10 hover:bg-[#CCFF00]/20 text-xs font-bold text-white transition-all cursor-pointer"
+              >
+                <span className="w-5 h-5 rounded-full bg-[#CCFF00] text-[#010A1A] flex items-center justify-center font-black text-[11px]">
+                  {currentUser.name.charAt(0)}
+                </span>
+                <span className="max-w-[100px] truncate">{currentUser.name}</span>
+              </button>
+
+              {userMenuOpen && (
+                <div className="absolute end-0 mt-2 w-48 rounded-2xl bg-[#030E22]/95 border border-white/15 p-2 shadow-2xl backdrop-blur-xl text-xs z-50 animate-in fade-in">
+                  <div className="px-3 py-2 border-b border-white/10 mb-1">
+                    <p className="font-bold text-white truncate">{currentUser.name}</p>
+                    <p className="text-[10px] text-slate-400 font-mono truncate">{currentUser.phone}</p>
+                  </div>
+                  <Link
+                    href="/profile"
+                    onClick={() => setUserMenuOpen(false)}
+                    className="flex items-center gap-2 px-3 py-2 rounded-xl text-slate-200 hover:text-[#CCFF00] hover:bg-white/5 transition-colors"
+                  >
+                    <User className="w-3.5 h-3.5" />
+                    <span>{lang === 'ar' ? 'الملف الشخصي وحجوزاتي' : 'Profile & Bookings'}</span>
+                  </Link>
+                  <Link
+                    href="/book"
+                    onClick={() => setUserMenuOpen(false)}
+                    className="flex items-center gap-2 px-3 py-2 rounded-xl text-slate-200 hover:text-[#00D2FF] hover:bg-white/5 transition-colors"
+                  >
+                    <Building2 className="w-3.5 h-3.5" />
+                    <span>{lang === 'ar' ? 'حجز ملعب جديد' : 'Book a Court'}</span>
+                  </Link>
+                  <button
+                    onClick={() => {
+                      logout();
+                      setUserMenuOpen(false);
+                    }}
+                    className="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-rose-400 hover:bg-rose-500/10 transition-colors text-start cursor-pointer border-t border-white/5 mt-1"
+                  >
+                    <span>{lang === 'ar' ? 'تسجيل الخروج' : 'Logout'}</span>
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <Link
+              href="/login"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/15 hover:border-white/30 hover:bg-white/10 text-xs font-bold text-slate-200 hover:text-white transition-all cursor-pointer"
+            >
+              <User className="w-3.5 h-3.5 text-slate-400" />
+              <span>{lang === 'ar' ? 'تسجيل الدخول' : 'Sign In'}</span>
+            </Link>
+          )}
 
           {/* Book Now Primary CTA */}
-          <Button
-            size="sm"
-            onClick={() => onOpenBookingModal()}
-          >
-            {lang === 'ar' ? 'احجز الآن' : 'Book Now'}
-          </Button>
+          <Link href="/book">
+            <Button size="sm">
+              {lang === 'ar' ? 'احجز الآن' : 'Book Now'}
+            </Button>
+          </Link>
 
           {/* Mobile Menu Toggle Button */}
           <button
@@ -143,17 +194,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBookingModal }) => {
             <a href="/courts" onClick={() => setMobileMenuOpen(false)} className="text-sm font-bold text-white hover:text-[#CFF40E] transition-colors">
               {lang === 'ar' ? 'الملاعب' : 'Courts'}
             </a>
-            <a href="/#matches" onClick={() => setMobileMenuOpen(false)} className="text-sm font-semibold text-slate-300 hover:text-[#CFF40E] transition-colors">
-              {lang === 'ar' ? 'المباريات' : 'Matches'}
+            <a href="/book" onClick={() => setMobileMenuOpen(false)} className="text-sm font-semibold text-slate-300 hover:text-[#CFF40E] transition-colors">
+              {lang === 'ar' ? 'حجز ملعب' : 'Book a Court'}
             </a>
-            <a href="/#store" onClick={() => setMobileMenuOpen(false)} className="text-sm font-semibold text-slate-300 hover:text-[#CFF40E] transition-colors">
-              {lang === 'ar' ? 'المتجر' : 'Store'}
-            </a>
-            <a href="/#tournaments" onClick={() => setMobileMenuOpen(false)} className="text-sm font-semibold text-slate-300 hover:text-[#CFF40E] transition-colors">
-              {lang === 'ar' ? 'البطولات' : 'Tournaments'}
+            <a href="/profile" onClick={() => setMobileMenuOpen(false)} className="text-sm font-semibold text-slate-300 hover:text-[#CFF40E] transition-colors">
+              {lang === 'ar' ? 'حسابي وحجوزاتي' : 'My Bookings'}
             </a>
             <a href="/about" onClick={() => setMobileMenuOpen(false)} className="text-sm font-semibold text-slate-300 hover:text-[#CFF40E] transition-colors">
               {lang === 'ar' ? 'من نحن' : 'About Us'}
+            </a>
+            <a href="/privacy" onClick={() => setMobileMenuOpen(false)} className="text-sm font-semibold text-slate-300 hover:text-[#CFF40E] transition-colors">
+              {lang === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'}
             </a>
 
             {/* Language Toggle in Mobile Menu List */}
@@ -170,26 +221,39 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBookingModal }) => {
           </nav>
 
           <div className="pt-4 border-t border-white/10 flex flex-col gap-3">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenBookingModal();
-              }}
-              className="py-2.5 px-4 text-xs font-bold text-slate-200 hover:text-white border border-white/15 rounded-full bg-white/5 hover:bg-white/10 transition-colors"
-            >
-              {lang === 'ar' ? 'تسجيل الدخول' : 'Sign In'}
-            </button>
+            {currentUser ? (
+              <Link
+                href="/profile"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-2.5 px-4 text-xs font-bold text-white border border-[#CCFF00]/40 rounded-full bg-[#CCFF00]/10 flex items-center justify-between"
+              >
+                <span>{lang === 'ar' ? `حسابي (${currentUser.name})` : `My Profile (${currentUser.name})`}</span>
+                <span className="text-[#CCFF00]">→</span>
+              </Link>
+            ) : (
+              <div className="grid grid-cols-2 gap-2">
+                <Link
+                  href="/login"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-2.5 px-4 text-xs text-center font-bold text-slate-200 hover:text-white border border-white/15 rounded-full bg-white/5 hover:bg-white/10 transition-colors"
+                >
+                  {lang === 'ar' ? 'تسجيل الدخول' : 'Sign In'}
+                </Link>
+                <Link
+                  href="/signup"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-2.5 px-4 text-xs text-center font-bold text-[#010A1A] bg-[#CCFF00] rounded-full transition-colors"
+                >
+                  {lang === 'ar' ? 'حساب جديد' : 'Sign Up'}
+                </Link>
+              </div>
+            )}
 
-            <Button
-              fullWidth
-              size="md"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenBookingModal();
-              }}
-            >
-              {lang === 'ar' ? 'احجز الآن' : 'Book Now'}
-            </Button>
+            <Link href="/book" onClick={() => setMobileMenuOpen(false)}>
+              <Button fullWidth size="md">
+                {lang === 'ar' ? 'احجز الآن' : 'Book Now'}
+              </Button>
+            </Link>
           </div>
         </div>
       )}

@@ -39,7 +39,7 @@ export const DEMO_COURTS = [
     badgeEn: 'Popular Padel in Assiut',
     badgeAr: 'الأكثر حجزاً بأسيوط',
     availableSlotAr: '07:30 م شاغر',
-    availableSlots: ['17:30', '19:00', '20:30', '22:00'],
+    availableSlots: ['5:30 PM', '7:00 PM', '8:30 PM', '10:00 PM'],
   },
   {
     id: 'court-2',
@@ -63,7 +63,7 @@ export const DEMO_COURTS = [
     badgeEn: 'Top Football Turf',
     badgeAr: 'أفضل ملعب خماسي بسوهاج',
     availableSlotAr: '08:30 م شاغر',
-    availableSlots: ['18:00', '19:30', '21:00', '22:30'],
+    availableSlots: ['6:00 PM', '7:30 PM', '9:00 PM', '10:30 PM'],
   },
   {
     id: 'court-3',
@@ -87,7 +87,7 @@ export const DEMO_COURTS = [
     badgeEn: '#1 Padel Sohag',
     badgeAr: 'أول ملعب باديل بسوهاج',
     availableSlotAr: '09:00 م شاغر',
-    availableSlots: ['17:00', '18:30', '20:00', '21:30'],
+    availableSlots: ['5:00 PM', '6:30 PM', '8:00 PM', '9:30 PM'],
   },
   {
     id: 'court-4',
@@ -111,7 +111,7 @@ export const DEMO_COURTS = [
     badgeEn: 'Best 7v7 in Assiut',
     badgeAr: 'ملعب سباعي ممتاز بأسيوط',
     availableSlotAr: '09:30 م شاغر',
-    availableSlots: ['16:00', '17:30', '19:00', '20:30'],
+    availableSlots: ['4:00 PM', '5:30 PM', '7:00 PM', '8:30 PM'],
   },
   {
     id: 'court-5',
@@ -135,7 +135,7 @@ export const DEMO_COURTS = [
     badgeEn: 'Multi-Sport Hub',
     badgeAr: 'مجمع باديل وخماسي بالمنيا',
     availableSlotAr: '08:00 م شاغر',
-    availableSlots: ['18:00', '19:30', '21:00', '22:30'],
+    availableSlots: ['6:00 PM', '7:30 PM', '9:00 PM', '10:30 PM'],
   },
   {
     id: 'court-6',
@@ -159,7 +159,7 @@ export const DEMO_COURTS = [
     badgeEn: 'Top Rated in Qena',
     badgeAr: 'تقييم ممتاز بقنا',
     availableSlotAr: '09:00 م شاغر',
-    availableSlots: ['17:30', '19:00', '20:30', '22:00'],
+    availableSlots: ['5:30 PM', '7:00 PM', '8:30 PM', '10:00 PM'],
   },
 ];
 
