@@ -7,7 +7,7 @@ import { TextAnimate } from '../ui/text-animate';
 import { Button } from '../ui/Button';
 
 interface TrendingShowcaseProps {
-  onOpenBookingModal: (courtId?: string) => void;
+  onOpenBookingModal?: (courtId?: string) => void;
 }
 
 export const TrendingShowcase: React.FC<TrendingShowcaseProps> = ({ onOpenBookingModal }) => {
@@ -16,7 +16,9 @@ export const TrendingShowcase: React.FC<TrendingShowcaseProps> = ({ onOpenBookin
 
   const handleRegister = (tournamentName: string, courtId: string = 'court-1') => {
     setRegisteredTournament(tournamentName);
-    onOpenBookingModal(courtId);
+    if (onOpenBookingModal) {
+      onOpenBookingModal(courtId);
+    }
   };
 
   return (

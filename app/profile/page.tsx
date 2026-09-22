@@ -4,8 +4,6 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useAuth } from '../../context/AuthContext';
 import { useLanguage } from '../../i18n/LanguageContext';
-import { Header } from '../../components/sections/Header';
-import { Footer } from '../../components/sections/Footer';
 import { 
   User as UserIcon, 
   Calendar, 
@@ -101,9 +99,7 @@ export default function ProfilePage() {
   // Not logged in state
   if (!currentUser) {
     return (
-      <div className="min-h-screen flex flex-col bg-[#F8FAFC] text-[#02122F] font-sans selection:bg-[#CFF40E] selection:text-[#010A1A]">
-        <Header onOpenBookingModal={() => {}} />
-
+      <div className="w-full flex flex-col bg-[#F8FAFC] text-[#02122F] font-sans selection:bg-[#CFF40E] selection:text-[#010A1A]">
         <main className="flex-1 max-w-xl mx-auto w-full px-4 pt-36 pb-20 flex items-center justify-center">
           <div className="w-full text-center p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/80 shadow-xl">
             <div className="w-16 h-16 rounded-2xl bg-slate-100 border border-slate-200 flex items-center justify-center mx-auto mb-5 text-[#04307C]">
@@ -144,16 +140,12 @@ export default function ProfilePage() {
             </div>
           </div>
         </main>
-
-        <Footer />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8FAFC] text-[#02122F] font-sans selection:bg-[#CFF40E] selection:text-[#010A1A]">
-      <Header onOpenBookingModal={() => {}} />
-
+    <div className="w-full flex flex-col bg-[#F8FAFC] text-[#02122F] font-sans selection:bg-[#CFF40E] selection:text-[#010A1A]">
       {/* Dark Luxury Hero Banner for Player Meta */}
       <section className="w-full pt-28 sm:pt-32 pb-12 bg-gradient-to-r from-[#02122F] via-[#041B3D] to-[#020B1A] text-white border-b border-slate-800 relative overflow-hidden">
         <div className="absolute top-0 end-0 w-80 h-80 bg-[#CFF40E]/10 rounded-full blur-3xl pointer-events-none" />
@@ -742,8 +734,6 @@ export default function ProfilePage() {
           </div>
         </Modal>
       )}
-
-      <Footer />
     </div>
   );
 }

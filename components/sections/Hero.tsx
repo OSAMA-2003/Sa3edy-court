@@ -7,6 +7,7 @@ import { Button } from '../ui/Button';
 import { TextAnimate } from '../ui/text-animate';
 import { AnimatedCounter } from '../ui/AnimatedCounter';
 import { Trophy, Users, CalendarCheck, Zap, Sparkles } from 'lucide-react';
+import Link from 'next/link';
 
 const STAT_ICONS: Record<string, React.ElementType> = {
   'stat-1': Trophy,
@@ -66,9 +67,11 @@ export const Hero: React.FC<HeroProps> = ({ onSearch, onOpenBookingModal }) => {
             </p>
 
             <div className="flex flex-wrap items-center justify-center md:justify-start pt-20 md:pt-5 gap-4 w-full sm:w-auto">
-              <Button size="lg" onClick={() => onOpenBookingModal()}>
-                {lang === 'ar' ? 'احجز ملعبك الآن' : 'Book Your Court Now'}
-              </Button>
+              <Link href={'/courts'}>
+                <Button size="lg" >
+                  {lang === 'ar' ? 'احجز ملعبك الآن' : 'Book Your Court Now'}
+                </Button>
+              </Link>
 
               <a href="#court-owners-section">
                 <Button variant="secondary" size="lg">

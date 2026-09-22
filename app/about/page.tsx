@@ -1,9 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { LanguageProvider, useLanguage } from '../../i18n/LanguageContext';
-import { Header } from '../../components/sections/Header';
-import { Footer } from '../../components/sections/Footer';
+import { useLanguage } from '../../i18n/LanguageContext';
 import { BookingModal } from '../../components/BookingModal';
 import { Button } from '../../components/ui/Button';
 import { AnimatedCounter } from '../../components/ui/AnimatedCounter';
@@ -123,10 +121,7 @@ function AboutPageContent() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-[#02122F] font-sans selection:bg-[#CFF40E] selection:text-[#010A1A]">
-      {/* Top Floating Glass Header */}
-      <Header onOpenBookingModal={handleOpenBookingModal} />
-
+    <div className="w-full flex flex-col bg-white text-[#02122F] font-sans selection:bg-[#CFF40E] selection:text-[#010A1A]">
       <main className="flex-1">
         {/* ========================================================================= */}
         {/* 1. ABOUT HERO SECTION (DARK THEME WITH 3D ATHLETES & FLOATING 3D BALLS)   */}
@@ -710,17 +705,10 @@ function AboutPageContent() {
         courtId={activeCourtId}
         initialSlot="7:00 PM"
       />
-
-      {/* Global Footer */}
-      <Footer />
     </div>
   );
 }
 
 export default function AboutPage() {
-  return (
-    <LanguageProvider>
-      <AboutPageContent />
-    </LanguageProvider>
-  );
+  return <AboutPageContent />;
 }

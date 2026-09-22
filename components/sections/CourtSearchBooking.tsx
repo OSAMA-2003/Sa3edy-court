@@ -73,7 +73,7 @@ export const CourtSearchBooking: React.FC<CourtSearchBookingProps> = ({
               href="/courts"
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-slate-100 border border-slate-300 hover:border-[#02122F] text-xs font-bold text-[#02122F] transition-all shadow-sm group"
             >
-              <span>{lang === 'ar' ? 'عرض جميع الملاعب والفلترة' : 'All Courts & Filters'}</span>
+              <span>{lang === 'ar' ? 'عرض جميع الملاعب ' : 'All Courts & Filters'}</span>
               <span className="text-[#04307C] group-hover:translate-x-[-2px] rtl:group-hover:translate-x-[-2px] ltr:group-hover:translate-x-[2px] transition-transform font-bold">
                 {lang === 'ar' ? '←' : '→'}
               </span>
@@ -122,11 +122,10 @@ export const CourtSearchBooking: React.FC<CourtSearchBookingProps> = ({
                 {/* Sport Type Badge */}
                 <div className="absolute top-3.5 start-3.5">
                   <span
-                    className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-black shadow-md border ${
-                      court.type === 'football'
+                    className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-black shadow-md border ${court.type === 'football'
                         ? 'bg-[#02122F] text-[#CFF40E] border-[#CFF40E]/40'
                         : 'bg-[#02122F] text-[#00D2FF] border-[#00D2FF]/40'
-                    }`}
+                      }`}
                   >
                     {court.type === 'football' ? (
                       <>

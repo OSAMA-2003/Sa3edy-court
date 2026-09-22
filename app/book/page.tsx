@@ -5,8 +5,6 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { useAuth } from '../../context/AuthContext';
 import { useLanguage } from '../../i18n/LanguageContext';
-import { Header } from '../../components/sections/Header';
-import { Footer } from '../../components/sections/Footer';
 import { DEMO_COURTS } from '../../data';
 import {
   CalendarWithTime,
@@ -149,8 +147,7 @@ function SimpleBookWizardContent() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8FAFC] text-[#02122F] font-sans selection:bg-[#CFF40E] selection:text-[#010A1A]">
-      <Header onOpenBookingModal={() => { }} />
+    <div className="w-full flex flex-col bg-[#F8FAFC] text-[#02122F] font-sans selection:bg-[#CFF40E] selection:text-[#010A1A]">
 
       {/* Dark Luxury Header Banner */}
       <section className="w-full pt-28 sm:pt-32 pb-10 bg-gradient-to-r from-[#02122F] via-[#041B3D] to-[#020B1A] text-white border-b border-slate-800 relative overflow-hidden">
@@ -425,8 +422,6 @@ function SimpleBookWizardContent() {
           </div>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }

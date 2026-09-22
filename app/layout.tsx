@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 import { AppProviders } from "../components/providers/AppProviders";
+import { AppShell } from "../components/layout/AppShell";
 
 export default function RootLayout({
   children,
@@ -18,7 +19,9 @@ export default function RootLayout({
     <html lang="ar" dir="rtl" className="h-full scroll-smooth antialiased dark">
       <body className="min-h-full flex flex-col bg-[#02122f] text-slate-100 selection:bg-[#cff40e] selection:text-[#02122f]">
         <AppProviders>
-          {children}
+          <AppShell>
+            {children}
+          </AppShell>
         </AppProviders>
       </body>
     </html>

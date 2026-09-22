@@ -5,6 +5,7 @@ import { useLanguage } from '../../i18n/LanguageContext';
 import { MessageSquare, ArrowLeft } from 'lucide-react';
 import { TextAnimate } from '../ui/text-animate';
 import { Button } from '../ui/Button';
+import Link from 'next/link';
 
 interface FinalCallToActionProps {
   onOpenBookingModal: (courtId?: string) => void;
@@ -21,10 +22,7 @@ export const FinalCallToAction: React.FC<FinalCallToActionProps> = ({ onOpenBook
           {/* Subtle lime accent top highlight */}
           <div className="absolute top-0 inset-x-1/3 h-1 bg-[#CFF40E]/80 rounded-full shadow-[0_0_15px_rgba(207,244,14,0.6)]"></div>
 
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#02122F] border border-white/10 text-slate-200 text-xs font-semibold uppercase tracking-wider">
-            <span>🎾</span>
-            <span>{lang === 'ar' ? 'جاهز تنزل الكورت؟' : 'READY TO PLAY?'}</span>
-          </div>
+
 
           <TextAnimate
             animation="scaleUp"
@@ -42,9 +40,12 @@ export const FinalCallToAction: React.FC<FinalCallToActionProps> = ({ onOpenBook
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-            <Button size="lg" onClick={() => onOpenBookingModal()}>
-              {lang === 'ar' ? 'احجز ملعبك الآن' : 'Book Your Court Now'}
-            </Button>
+            <Link href={'/courts'}>
+              <Button size="lg" >
+                {lang === 'ar' ? 'احجز ملعبك الآن' : 'Book Your Court Now'}
+              </Button>
+            </Link>
+
 
             <a
               href="https://wa.me/201004889211"

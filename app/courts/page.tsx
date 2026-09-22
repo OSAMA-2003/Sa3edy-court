@@ -5,8 +5,6 @@ import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { DEMO_COURTS, EGYPT_CITIES } from '../../data';
-import { Header } from '../../components/sections/Header';
-import { Footer } from '../../components/sections/Footer';
 import { Button } from '../../components/ui/Button';
 import { Card } from '../../components/ui/Card';
 import {
@@ -104,8 +102,7 @@ function CourtsDirectoryContent() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8FAFC] text-[#02122F] font-sans selection:bg-[#CFF40E] selection:text-[#010A1A]">
-      <Header onOpenBookingModal={() => { }} />
+    <div className="w-full flex flex-col bg-[#F8FAFC] text-[#02122F] font-sans selection:bg-[#CFF40E] selection:text-[#010A1A]">
 
       {/* 1. HERO BANNER WITH THE TWO MAIN SPORT SELECTION BUTTONS */}
       <section className="relative w-full pt-28 sm:pt-34 pb-14 sm:pb-18 bg-[#010A1A] text-white border-b border-white/10 overflow-hidden">
@@ -429,8 +426,6 @@ function CourtsDirectoryContent() {
           )}
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 }

@@ -1,8 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { LanguageProvider } from '../i18n/LanguageContext';
-import { Header } from '../components/sections/Header';
 import { Hero } from '../components/sections/Hero';
 import { HeroStats } from '../components/sections/HeroStats';
 import { CourtSearchBooking } from '../components/sections/CourtSearchBooking';
@@ -12,10 +10,9 @@ import { WhyChooseUs } from '../components/sections/WhyChooseUs';
 import { CourtOwnersBanner } from '../components/sections/CourtOwnersBanner';
 import { Testimonials } from '../components/sections/Testimonials';
 import { FinalCallToAction } from '../components/sections/FinalCallToAction';
-import { Footer } from '../components/sections/Footer';
 import { BookingModal } from '../components/BookingModal';
 
-function LandingPageContent() {
+export default function Home() {
   const [selectedCity, setSelectedCity] = useState('all');
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [activeCourtId, setActiveCourtId] = useState<string>('court-1');
@@ -33,10 +30,7 @@ function LandingPageContent() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-[#02122F] font-sans selection:bg-[#CFF40E] selection:text-[#010A1A]">
-
-      {/* Top Header */}
-      <Header onOpenBookingModal={handleOpenBookingModal} />
+    <div className="w-full flex flex-col bg-white text-[#02122F] font-sans selection:bg-[#CFF40E] selection:text-[#010A1A]">
 
       {/* Main Sections - Zero top whitespace, coherent visual rhythm */}
       <main className="flex-1">
@@ -50,35 +44,32 @@ function LandingPageContent() {
         {/* 2. Hero Standalone Stats Section */}
         {/* <HeroStats /> */}
 
-        {/* 3. Instant Booking / Popular Courts Carousel */}
+        {/* 3. Filterable Court Booking Grid (Padel & Football) */}
         <CourtSearchBooking
           selectedCity={selectedCity}
           setSelectedCity={setSelectedCity}
           onOpenBookingModal={handleOpenBookingModal}
         />
 
-        {/* 5. How It Works (Connected 01 -> 02 -> 03) */}
+        {/* 4. How It Works (3 Steps) */}
         {/* <HowItWorks /> */}
 
-        {/* 6. Official Championships & Tournaments Showcase */}
-        <TrendingShowcase onOpenBookingModal={handleOpenBookingModal} />
+        {/* 5. Tournament & Matchmaking Banner (Trending Showcase) */}
+        {/* <TrendingShowcase /> */}
 
-        {/* 7. Why Choose Us (4 Benefits) */}
+        {/* 6. Why Choose Us */}
         {/* <WhyChooseUs /> */}
 
-        {/* 8. Venue Owners Partnership Banner */}
+        {/* 7. Court Owners Partnership Banner */}
         <CourtOwnersBanner />
 
-        {/* 9. Player & Owner Reviews Marquee */}
+        {/* 8. Verified Reviews Carousel (Testimonials) */}
         <Testimonials />
 
-        {/* 10. Final Call To Action */}
+        {/* 9. Final Call To Action */}
         <FinalCallToAction onOpenBookingModal={handleOpenBookingModal} />
 
       </main>
-
-      {/* Footer */}
-      <Footer />
 
       {/* Booking Modal */}
       <BookingModal
@@ -91,12 +82,3 @@ function LandingPageContent() {
     </div>
   );
 }
-
-export default function Home() {
-  return (
-    <LanguageProvider>
-      <LandingPageContent />
-    </LanguageProvider>
-  );
-}
-
