@@ -53,7 +53,7 @@ export const Hero: React.FC<HeroProps> = ({ onSearch, onOpenBookingModal }) => {
               animation="blurInUp"
               by="word"
               as="h1"
-              className="text-center md:text-start font-cairo font-black text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-5 drop-shadow-md"
+              className="!hidden md:!block text-center md:text-start font-cairo font-black text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-5 drop-shadow-md"
             >
               {lang === 'ar'
                 ? 'احجز ماتشك في ملاعب البادل وكرة القدم بالصعيد'
@@ -66,15 +66,15 @@ export const Hero: React.FC<HeroProps> = ({ onSearch, onOpenBookingModal }) => {
                 : 'Upper Egypt’s premier Padel & Football 5v5/7v7 court booking platform across Assiut, Sohag & Upper Egypt. Instant confirmation.'}
             </p>
 
-            <div className="flex flex-wrap items-center justify-center md:justify-start pt-20 md:pt-5 gap-4 w-full sm:w-auto">
+            <div className="flex flex-col md:flex-row flex-wrap items-center justify-center md:justify-start pt-20 md:pt-5 gap-4 w-full sm:w-auto">
               <Link href={'/courts'}>
-                <Button size="lg" >
+                <Button size="lg" className='w-60 md:w-auto ' >
                   {lang === 'ar' ? 'احجز ملعبك الآن' : 'Book Your Court Now'}
                 </Button>
               </Link>
 
               <a href="#court-owners-section">
-                <Button variant="secondary" size="lg">
+                <Button variant="secondary" size="lg" className='w-60 md:w-auto' >
                   {lang === 'ar' ? 'سجّل ملعبك' : 'Register Venue'}
                 </Button>
               </a>

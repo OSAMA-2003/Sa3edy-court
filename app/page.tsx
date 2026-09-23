@@ -55,7 +55,7 @@ export default function Home() {
         {/* <HowItWorks /> */}
 
         {/* 5. Tournament & Matchmaking Banner (Trending Showcase) */}
-        {/* <TrendingShowcase /> */}
+        <TrendingShowcase />
 
         {/* 6. Why Choose Us */}
         {/* <WhyChooseUs /> */}
